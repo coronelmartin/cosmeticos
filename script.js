@@ -1,5 +1,5 @@
 // CONFIGURACIÓN: Cambia esto por tu número de teléfono real con código de país (sin el +)
-const MI_TELEFONO = "595981000000"; 
+const MI_TELEFONO = "595974227371"; 
 
 let todosLosProductos = [];
 let carrito = [];
@@ -280,7 +280,7 @@ function enviarPedidoWhatsApp() {
         return;
     }
 
-    let mensaje = "¡Hola AURA! Me gustaría realizar el siguiente pedido:\n\n";
+    let mensaje = "¡Hola CORONEL! Me gustaría realizar el siguiente pedido:\n\n";
     let total = 0;
 
     carrito.forEach(item => {
@@ -291,7 +291,7 @@ function enviarPedidoWhatsApp() {
 
     mensaje += `\n*Total a pagar: Gs. ${total.toLocaleString('es-ES')}*`;
     
-    const url = `https://wa.me{MI_TELEFONO}?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/595974227371?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
 
