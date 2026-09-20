@@ -7,6 +7,7 @@ let categoriaActiva = 'todos';
 let marcaActiva = 'todas';
 let productoActualId = null; // Para saber qué producto está abierto en el modal
 
+// Diccionario para corregir mayúsculas y acentos de las MARCAS
 const NOMBRES_MARCAS = {
     "oboticario": "O Boticário",
     "gigot": "Gigot",
@@ -15,14 +16,17 @@ const NOMBRES_MARCAS = {
     "avon": "Avon"
 };
 
+// Diccionario para corregir la estética de las CATEGORÍAS en pantalla
 const NOMBRES_CATEGORIAS = {
     "maquillaje": "Maquillaje",
-    "perfumes": "Perfumes",
+    "perfumes-mujer": "Perfumes Mujer",
+    "perfumes-hombre": "Perfumes Hombre",
     "cuidado-facial": "Cuidado Facial",
     "unas": "Uñas",
     "cabello": "Cabello"
 };
 
+// Funciones auxiliares para formatear texto de forma estética
 function obtenerNombreMarca(marcaMinúscula) {
     return NOMBRES_MARCAS[marcaMinúscula] || (marcaMinúscula.charAt(0).toUpperCase() + marcaMinúscula.slice(1));
 }
@@ -41,7 +45,7 @@ async function cargarProductos() {
         generarFiltrosDeMarcas();     
         aplicarFiltros();
         
-        // ¡NUEVO! Verificar si la URL trae un enlace compartido
+        // Verificar si la URL trae un enlace compartido
         verificarEnlaceCompartido();
     } catch (error) {
         console.error("Error cargando productos:", error);
@@ -61,7 +65,6 @@ function verificarEnlaceCompartido() {
 // Copiar enlace al portapapeles
 function compartirProducto() {
     if (!productoActualId) return;
-    // Genera un link dinámico tipo: https://tuweb.com
     const urlCompartir = `${window.location.origin}${window.location.pathname}?id=${productoActualId}`;
     
     navigator.clipboard.writeText(urlCompartir).then(() => {
@@ -81,7 +84,7 @@ function generarFiltrosDeCategorias() {
     const contenedorCategorias = document.getElementById('lista-categorias');
     if (!contenedorCategorias) return;
 
-    const categoriasUnicas = [...new Set(todosLosProductos.map(p => p.categoria.toLowerCase().trim()))];
+    const categoriasUnicas = [...new Set(todosLosProductos.map(p => p.categoria).filter(Boolean).map(c => c.toLowerCase().trim()))];
     contenedorCategorias.innerHTML = `<button class="tab-btn cat-btn active" onclick="filterCategory('todos', event)">Todos</button>`;
 
     categoriasUnicas.forEach(cat => {
@@ -98,7 +101,7 @@ function generarFiltrosDeMarcas() {
     const contenedorMarcas = document.getElementById('lista-marcas');
     if (!contenedorMarcas) return;
 
-    const marcasUnicas = [...new Set(todosLosProductos.map(p => p.marca.toLowerCase().trim()))];
+    const marcasUnicas = [...new Set(todosLosProductos.map(p => p.marca).filter(Boolean).map(m => m.toLowerCase().trim()))];
     contenedorMarcas.innerHTML = `<button class="brand-btn active" onclick="filterBrand('todas', event)">Todas</button>`;
 
     marcasUnicas.forEach(marca => {
@@ -116,6 +119,9 @@ function renderizarProductos(productos) {
     contenedor.innerHTML = ""; 
 
     productos.forEach(prod => {
+        // Ignora las líneas de sección/comentarios del JSON que no tengan ID
+        if (!prod.id) return;
+
         const card = document.createElement('div');
         card.className = `product-card ${!prod.stock ? 'sin-stock' : ''}`;
         
@@ -126,7 +132,7 @@ function renderizarProductos(productos) {
         card.innerHTML = `
             <div class="product-image" onclick="openModal(${prod.id})">
                 <img src="${prod.imagen}" alt="${prod.nombre}">
-                <div class="view-details-overlay">Ver detalles</div>
+                <div class="view-details-overlay">Ver detalles 👀</div>
             </div>
             <div class="product-info">
                 <span class="brand-label">${obtenerNombreMarca(prod.marca)}</span>
@@ -140,7 +146,7 @@ function renderizarProductos(productos) {
     });
 }
 
-// 5. Filtros
+// 5. Lógica Combinada de Filtros
 function filterCategory(category, event) {
     const buttons = document.querySelectorAll('.cat-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
@@ -159,8 +165,8 @@ function filterBrand(brand, event) {
 
 function aplicarFiltros() {
     let filtrados = todosLosProductos;
-    if (categoriaActiva !== 'todos') filtrados = filtrados.filter(p => p.categoria.toLowerCase().trim() === categoriaActiva);
-    if (marcaActiva !== 'todas') filtrados = filtrados.filter(p => p.marca.toLowerCase().trim() === marcaActiva);
+    if (categoriaActiva !== 'todos') filtrados = filtrados.filter(p => p.categoria && p.categoria.toLowerCase().trim() === categoriaActiva);
+    if (marcaActiva !== 'todas') filtrados = filtrados.filter(p => p.marca && p.marca.toLowerCase().trim() === marcaActiva);
     renderizarProductos(filtrados);
 }
 
@@ -169,8 +175,8 @@ function openModal(id) {
     const prod = todosLosProductos.find(p => p.id === id);
     if (!prod) return;
 
-    productoActualId = prod.id; // Guardar ID activo
-    document.getElementById('modal-cantidad').value = 1; // Reiniciar selector a 1
+    productoActualId = prod.id; 
+    document.getElementById('modal-cantidad').value = 1; 
 
     document.getElementById('modal-imagen').src = prod.imagen;
     document.getElementById('modal-imagen').alt = prod.nombre;
@@ -211,13 +217,12 @@ function openModal(id) {
 function agregarAlCarritoDesdeModal() {
     const cantidadSeleccionada = parseInt(document.getElementById('modal-cantidad').value) || 1;
     agregarAlCarrito(productoActualId, cantidadSeleccionada);
-    closeModal();
+    closeModal(); 
 }
 
 function closeModal() {
     document.getElementById('product-modal').classList.remove('open');
     productoActualId = null;
-    // Limpiar el parámetro de la URL sutilmente sin recargar
     window.history.replaceState({}, document.title, window.location.pathname);
 }
 
@@ -236,7 +241,17 @@ function agregarAlCarrito(id, cantidad = 1) {
         carrito.push({ ...producto, cantidad: cantidad });
     }
     actualizarInterfazCarrito();
-    document.getElementById('cart-sidebar').classList.add('open');
+    
+        // El carrito no se abre solo. Aplica un efecto de escala al icono superior como aviso:
+    const iconoCarrito = document.querySelector('.cart-icon');
+    if (iconoCarrito) {
+        iconoCarrito.style.transform = 'scale(1.2)';
+        iconoCarrito.style.borderColor = '#d4a373';
+        setTimeout(() => {
+            iconoCarrito.style.transform = 'scale(1)';
+            iconoCarrito.style.borderColor = '#e1d6cf';
+        }, 300);
+    }
 }
 
 function eliminarDelCarrito(id) {
@@ -253,7 +268,7 @@ function actualizarInterfazCarrito() {
     let totalPrecio = 0;
     listaHTML.innerHTML = "";
 
-        carrito.forEach(item => {
+    carrito.forEach(item => {
         totalCantidad += item.cantidad;
         totalPrecio += (item.precio * item.cantidad);
 
@@ -273,19 +288,22 @@ function actualizarInterfazCarrito() {
     totalHTML.innerText = `Gs. ${totalPrecio.toLocaleString('es-ES')}`;
 }
 
-// 8. Enviar pedido por WhatsApp
+// 8. Enviar pedido por WhatsApp con ID, nombre, unidades y precio
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert("Tu carrito está vacío.");
         return;
     }
 
-    let mensaje = "¡Hola CORONEL! Me gustaría realizar el siguiente pedido:\n\n";
+    let mensaje = "¡Hola Coronel! Me gustaría realizar el siguiente pedido:\n\n";
     let total = 0;
 
     carrito.forEach(item => {
         const subtotal = item.precio * item.cantidad;
-        mensaje += `• ${item.nombre} (x${item.cantidad}) - Gs. ${subtotal.toLocaleString('es-ES')}\n`;
+        
+        // Mensaje detallado con ID, Nombre, Unidades y Precio unitario
+        mensaje += `• [ID: ${item.id}] ${item.nombre} (${item.cantidad} unidades) x Gs. ${item.precio.toLocaleString('es-ES')}\n`;
+        
         total += subtotal;
     });
 
@@ -294,6 +312,5 @@ function enviarPedidoWhatsApp() {
     const url = `https://wa.me/595974227371?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
-
 // Iniciar la carga del catálogo
 cargarProductos();

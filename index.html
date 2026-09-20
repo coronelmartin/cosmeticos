@@ -86,10 +86,12 @@
     </div>
 
 
-    <!-- Panel Lateral del Carrito -->
+       <!-- Panel Lateral del Carrito Actualizado -->
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
             <h3>Tu Pedido</h3>
+            <!-- 👇 NUEVO BOTÓN DE SEGUIR COMPRANDO 👇 -->
+            <button class="btn-continue-shopping" onclick="toggleCart()">Seguir Comprando 🛍️</button>
             <button class="close-btn" onclick="toggleCart()">×</button>
         </div>
         <div class="cart-items" id="items-carrito"></div>
@@ -98,6 +100,7 @@
             <button class="btn-checkout" onclick="enviarPedidoWhatsApp()">Enviar Pedido por WhatsApp 💬</button>
         </div>
     </div>
+
 
     <!-- Pie de Página -->
     <footer id="contacto">

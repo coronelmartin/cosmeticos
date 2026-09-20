@@ -204,7 +204,7 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-/* Ajuste de contenedor e imagen del producto (Dar respiro) */
+/* Ajuste de contenedor e imagen del producto */
 .product-image {
     height: 300px;
     background-color: #ffffff;
@@ -327,6 +327,7 @@ body {
     top: 0;
     right: -350px;
     width: 350px;
+    max-width: 100%; /* Evita desbordes */
     height: 100vh;
     background-color: white;
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
@@ -464,7 +465,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* Galería interna del Modal (Muestras de tonos) */
+/* Galería interna del Modal */
 .modal-gallery {
     display: flex;
     flex-direction: column;
@@ -602,4 +603,50 @@ footer {
     text-align: center;
     padding: 40px 20px;
     margin-top: 60px;
+}
+
+/* 📱 REGLAS RESPONSIVE PARA DISPOSITIVOS MÓVILES */
+@media (max-width: 480px) {
+    .cart-sidebar {
+        width: 100%;       /* El carrito toma el 100% de la pantalla del celular */
+        right: -100%;      /* Ocultado adaptado al tamaño completo */
+    }
+    
+    .cart-sidebar.open {
+        right: 0;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+    
+    .modal-body {
+        gap: 15px;
+    }
+}
+/* Botón Seguir Comprando dentro del carrito */
+.btn-continue-shopping {
+    background-color: #faf7f5;
+    border: 1px solid #e1d6cf;
+    color: #6e5d53;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.btn-continue-shopping:hover {
+    background-color: #4a3b32;
+    color: white;
+    border-color: #4a3b32;
+}
+
+/* Animación sutil para el icono al agregar productos */
+.cart-icon {
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
