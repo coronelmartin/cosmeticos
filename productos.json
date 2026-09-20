@@ -1,0 +1,154 @@
+[
+    {
+        "id": 82166,
+        "nombre": "Jalea Real Crema Facial 100g",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 66000,
+        "imagen": "imagenes/producto.png",
+        "stock": true,
+        "detalles": "JALEA REAL 100% NATURAL FIRMEZA Y VITALIDAD. Aumenta la tonicidad de la piel. Ayuda a mejorar la elasticidad y deja la piel más suave y uniforme"
+    },
+    {
+        "id": 38909,
+        "nombre": "REJUVENT - SERÚM ULTRA CONCENTRADO. 32ml",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 85000,
+        "imagen": "imagenes/rejuvent_serum.png",
+        "stock": true,
+        "detalles": "SÉRUM ULTRA CONCENTRADO - REGENERACION PODEROSA - textura, ultraligera que penetra rapidamente."
+    },
+    {
+        "id": 39945,
+        "nombre": "CREMA DE DIA FPS 20 EFECTO LUMINOSO. 32g",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 99000,
+        "imagen": "imagenes/rejuvent_crema.png",
+        "stock": true,
+        "detalles": "CREMA DE DIA FPS 20 EFECTO LUMINOSO - Células madre + microesferas con brillo. 32g"
+    },
+    {
+        "id": 39687,
+        "nombre": "REJUVENT - CÉLULAS MADRES",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 109000,
+        "imagen": "imagenes/rejuvent_celulas.png",
+        "stock": true,
+        "detalles": "Una fragancia floral exclusiva y sofisticada. Con notas altas de rosa de Damasco, corazón de jazmín y un fondo cálido de ámbar y vainilla. Perfecta para ocasiones especiales. Contenido: 75ml."
+    },
+    {
+        "id": 35035,
+        "nombre": "DELINEADOR LIQUIDO. 3ml",
+        "categoria": "maquillaje",
+        "marca": "gigot",
+        "precio": 69000,
+        "imagen": "imagenes/delineador.png",
+        "stock": true,
+        "detalles": "Una fragancia floral exclusiva y sofisticada. Con notas altas de rosa de Damasco, corazón de jazmín y un fondo cálido de ámbar y vainilla. Perfecta para ocasiones especiales. Contenido: 75ml."
+    },
+    {
+        "id": 7730404012677,
+        "nombre": "NAVY RED",
+        "categoria": "perfumes-masculinos",
+        "marca": "CASAPUEBLO",
+        "precio": 105000,
+        "imagen": "imagenes/navy_red.jpeg",
+        "stock": true,
+        "detalles": "Las Notas de Salida son: mandarina, naranja y petit grain. Las Notas de Corazón son: algas marinas, lavanda y flor del algodonero. Las Notas de Fondo son: cedro de Virginia, notas amaderadas, pachulí, esclarea y ámbar."
+    },
+    {
+        "id": 7730404012660,
+        "nombre": "NAVY BLUE",
+        "categoria": "perfumes-masculinos",
+        "marca": "CASAPUEBLO",
+        "precio": 105000,
+        "imagen": "imagenes/navy_blue.jpeg",
+        "stock": true,
+        "detalles": "Las Notas de Salida son mandarina, bergamota y notas verdes. Las Notas de corazón son pimienta, flores y cardamomo. Las Notas de Fondo son vainilla, madera de gaiac, sándalo, ámbar y almizcle."
+    },
+    {
+        "id": 7730404012684,
+        "nombre": "24 HEURES CHARM",
+        "categoria": "perfumes-masculinos",
+        "marca": "CASAPUEBLO",
+        "precio": 105000,
+        "imagen": "imagenes/heures_charm.jpg",
+        "stock": true,
+        "detalles": "Salida: Mezcla de cítricos y notas verdes para una sensación de frescura. Corazón: Notas florales que aportan suavidad. Fondo: Acordes de cierre que completan su perfil masculino y duradero."
+    },
+    {
+        "id": 7730404012691,
+        "nombre": "24 HEURES GREEN",
+        "categoria": "perfumes-masculinos",
+        "marca": "CASAPUEBLO",
+        "precio": 105000,
+        "imagen": "imagenes/heures_green.jpeg",
+        "stock": true,
+        "detalles": "Salida: Mezcla de cítricos y notas verdes para una sensación de frescura. Corazón: Notas florales que aportan suavidad. Fondo: Acordes de cierre que completan su perfil masculino y duradero."
+    },
+    {
+        "id": 7730404012707,
+        "nombre": "24 HEURES BLUE",
+        "categoria": "perfumes-masculinos",
+        "marca": "CASAPUEBLO",
+        "precio": 105000,
+        "imagen": "imagenes/heures_blue.jpeg",
+        "stock": true,
+        "detalles": "Notas de salida: Melón, mandarina y pepino. Notas de corazón: Albahaca, salvia y geranio. Notas de fondo: Almizcle, gamuza y notas amaderadas."
+    },
+    {
+        "id": 7730404011670,
+        "nombre": "FEELINGS HOPE",
+        "categoria": "perfumes-femeninos",
+        "marca": "CASAPUEBLO",
+        "precio": 120000,
+        "imagen": "imagenes/feelings_hope.jpg",
+        "stock": true,
+        "detalles": "Familia olfativa: Floral frutal. Notas de salida: Aromas cítricos y frutales que dan frescura al instante. Notas de corazón: Mezcla de jazmín y rosa para un toque romántico."
+    },
+    {
+        "id": 7730404011663,
+        "nombre": "FEELINGS LOVE",
+        "categoria": "perfumes-femeninos",
+        "marca": "CASAPUEBLO",
+        "precio": 120000,
+        "imagen": "imagenes/feelings_love.jpeg",
+        "stock": true,
+        "detalles": "Notas de salida: Ron y fruta de la pasión. Notas de corazón: Gardenia y almizcle. Notas de fondo: Vainilla y haba tonka."
+    },
+    {
+        "id": 7730404011687,
+        "nombre": "FEELINGS PEACE",
+        "categoria": "perfumes-femeninos",
+        "marca": "CASAPUEBLO",
+        "precio": 120000,
+        "imagen": "imagenes/feelings_peace.jpeg",
+        "stock": true,
+        "detalles": "Notas de salida: Presenta una frescura inicial con toques cítricos y frutales. Notas de corazón: Contiene notas florales suaves y envolventes. Notas de fondo: Ofrece una mezcla cálida y reconfortante para acompañarte durante el día."
+    },
+    {
+        "id": 7730404005600,
+        "nombre": "PURE VIOLET",
+        "categoria": "perfumes-femeninos",
+        "marca": "CASAPUEBLO",
+        "precio": 100000,
+        "imagen": "imagenes/pure_violet.jpeg",
+        "stock": true,
+        "detalles": "Notas de salida: Campanilla y trébol blanco. Notas de corazón: Lirio de los valles, escaramujo y jazmín. Notas de fondo: Almizcle limpio y ámbar blanco."
+    },
+    {
+        "id": 7730404005891,
+        "nombre": "PURE TOURQUOISE",
+        "categoria": "perfumes-femeninos",
+        "marca": "CASAPUEBLO",
+        "precio": 100000,
+        "imagen": "imagenes/pure_turquoise.jpeg",
+        "stock": true,
+        "detalles": "Notas de Salida: Green tamarind y frutas. Notas de Corazón: Jazmín y muguet. Notas de Fondo: Almizcle y vainilla oriental."
+    }
+
+    
+]

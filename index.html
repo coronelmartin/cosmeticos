@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coronel Cosmeticos | Tienda Oficial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <header class="navbar">
+        <div class="logo">CORONEL</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" onclick="toggleCart()">🛒 <span class="cart-count" id="contador-carrito">0</span></div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Resalta tu belleza natural</h1>
+            <p>Cosméticos premium y fragancias exclusivas para tu día a día.</p>
+            <a href="#productos" class="btn-primary">Explorar Catálogo</a>
+        </div>
+    </section>
+
+    <!-- Catálogo y Filtros (100% automáticos) -->
+    <section id="productos" class="products-section">
+        <h2>Nuestro Catálogo</h2>
+        
+        <!-- Filtros por Categorías Dinámicas -->
+        <p class="subtitle">Categorías</p>
+        <div class="category-tabs" id="lista-categorias">
+            <!-- Los botones se generarán solos aquí por JavaScript -->
+        </div>
+
+        <!-- Filtros por Marcas Dinámicas -->
+        <p class="subtitle-small">Filtrar por Marca</p>
+        <div class="brand-tabs" id="lista-marcas">
+            <!-- Los botones se generarán solos aquí por JavaScript -->
+        </div>
+        
+        <!-- Rejilla de productos -->
+        <div class="products-grid" id="lista-productos"></div>
+    </section>
+
+        <!-- Ventana Emergente de Detalles Mejorada (Modal) -->
+    <div class="product-modal" id="product-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="modal-img-container">
+                        <img id="modal-imagen" src="" alt="">
+                    </div>
+                    <!-- Contenedor para ver los tonos/texturas -->
+                    <div class="modal-thumbnails" id="modal-miniaturas"></div>
+                </div>
+                <div class="modal-info">
+                    <span id="modal-marca" class="brand-tag"></span>
+                    <h3 id="modal-nombre"></h3>
+                    <p id="modal-categoria" class="category"></p>
+                    <p id="modal-precio" class="price"></p>
+                    <p id="modal-descripcion" class="description"></p>
+                    
+                    <!-- selectores de cantidad y acciones -->
+                    <div class="modal-actions" id="modal-acciones-container">
+                        <div class="quantity-selector">
+                            <label for="modal-cantidad">Cantidad:</label>
+                            <input type="number" id="modal-cantidad" value="1" min="1" max="99">
+                        </div>
+                        <div id="modal-boton-container"></div>
+                    </div>
+                    
+                    <!-- Botón para compartir -->
+                    <button class="btn-share" onclick="compartirProducto()">🔗 Copiar Enlace del Producto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Panel Lateral del Carrito -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Pedido</h3>
+            <button class="close-btn" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="items-carrito"></div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: <span id="total-precio">Gs. 0</span></div>
+            <button class="btn-checkout" onclick="enviarPedidoWhatsApp()">Enviar Pedido por WhatsApp 💬</button>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer id="contacto">
+        <p>&copy; 2026 AURA Cosmetics. Todos los derechos reservados.</p>
+        <p>Contacto: info@auracosmetics.com | Síguenos en @AuraCosmetics</p>
+    </footer>
+
+    <!-- Enlace al Script -->
+    <script src="script.js"></script>
+</body>
+</html>
