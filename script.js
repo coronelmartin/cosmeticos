@@ -1,39 +1,50 @@
 // CONFIGURACIÓN: Cambia esto por tu número de teléfono real con código de país (sin el +)
-const MI_TELEFONO = "595974227371"; 
+const MI_TELEFONO = "595981000000"; 
 
 let todosLosProductos = [];
 let carrito = [];
 let categoriaActiva = 'todos';
 let marcaActiva = 'todas';
-let productoActualId = null; // Para saber qué producto está abierto en el modal
+let productoActualId = null; 
 
-// Diccionario para corregir mayúsculas y acentos de las MARCAS
+// Diccionario para corregir y poner en MAYÚSCULAS las MARCAS
 const NOMBRES_MARCAS = {
-    "oboticario": "O Boticário",
-    "gigot": "Gigot",
-    "natura": "Natura",
-    "marykay": "Mary Kay",
-    "avon": "Avon"
+    "oboticario": "O BOTICÁRIO",
+    "gigot": "GIGOT",
+    "natura": "NATURA",
+    "marykay": "MARY KAY",
+    "avon": "AVON"
 };
 
-// Diccionario para corregir la estética de las CATEGORÍAS en pantalla
+// Diccionario para corregir y poner en MAYÚSCULAS las CATEGORÍAS
 const NOMBRES_CATEGORIAS = {
-    "maquillaje": "Maquillaje",
-    "perfumes-mujer": "Perfumes Mujer",
-    "perfumes-hombre": "Perfumes Hombre",
-    "cuidado-facial": "Cuidado Facial",
-    "unas": "Uñas",
-    "cabello": "Cabello"
+    "todos": "TODOS",
+    "maquillaje": "MAQUILLAJE",
+    "perfumes-mujer": "PERFUMES FEMENINOS",
+    "perfumes-hombre": "PERFUMES MASCULINOS",
+    "perfumes-masculinos": "PERFUMES MASCULINOS", // Por si acaso
+    "perfumes-femeninos": "PERFUMES FEMENINOS",   // Por si acaso
+    "cuidado-facial": "CUIDADO FACIAL",
+    "infantil": "INFANTIL",
+    "solares": "SOLARES",
+    "cuidado-corporal": "CUIDADO CORPORAL",
+    "cuidado-de-piernas": "CUIDADO DE PIERNAS",
+    "cuidado-capilar": "CUIDADO CAPILAR",
+    "cabello": "CABELLO",
+    "unas": "UÑAS"
 };
 
-// Funciones auxiliares para formatear texto de forma estética
+// Funciones auxiliares mejoradas para forzar mayúsculas automáticamente si agregas una nueva
 function obtenerNombreMarca(marcaMinúscula) {
-    return NOMBRES_MARCAS[marcaMinúscula] || (marcaMinúscula.charAt(0).toUpperCase() + marcaMinúscula.slice(1));
+    const clave = marcaMinúscula.toLowerCase().trim();
+    return NOMBRES_MARCAS[clave] || clave.toUpperCase();
 }
 
 function obtenerNombreCategoria(catMinúscula) {
-    return NOMBRES_CATEGORIAS[catMinúscula] || (catMinúscula.replace('-', ' ').charAt(0).toUpperCase() + catMinúscula.replace('-', ' ').slice(1));
+    const clave = catMinúscula.toLowerCase().trim();
+    return NOMBRES_CATEGORIAS[clave] || clave.replace('-', ' ').toUpperCase();
 }
+
 
 // 1. Cargar productos desde el JSON
 async function cargarProductos() {
@@ -44,8 +55,6 @@ async function cargarProductos() {
         generarFiltrosDeCategorias(); 
         generarFiltrosDeMarcas();     
         aplicarFiltros();
-        
-        // Verificar si la URL trae un enlace compartido
         verificarEnlaceCompartido();
     } catch (error) {
         console.error("Error cargando productos:", error);
@@ -119,7 +128,6 @@ function renderizarProductos(productos) {
     contenedor.innerHTML = ""; 
 
     productos.forEach(prod => {
-        // Ignora las líneas de sección/comentarios del JSON que no tengan ID
         if (!prod.id) return;
 
         const card = document.createElement('div');
@@ -186,10 +194,8 @@ function openModal(id) {
     document.getElementById('modal-precio').innerText = `Gs. ${prod.precio.toLocaleString('es-ES')}`;
     document.getElementById('modal-descripcion').innerText = prod.detalles || "No hay descripción disponible.";
 
-    // Renderizar las miniaturas/tonos si existen
     const contenedorMiniaturas = document.getElementById('modal-miniaturas');
     contenedorMiniaturas.innerHTML = "";
-    
     if (prod.imagenes_detalles && prod.imagenes_detalles.length > 0) {
         prod.imagenes_detalles.forEach(imgRuta => {
             const thumb = document.createElement('img');
@@ -200,9 +206,44 @@ function openModal(id) {
         });
     }
 
-    const botonContainer = document.getElementById('modal-boton-container');
+    // Cargar selector de tonos estructurado con Código de Fábrica oculto
+    const contenedorTonos = document.getElementById('modal-tonos-container');
+    if (prod.tonos && typeof prod.tonos === 'object' && !Array.isArray(prod.tonos)) {
+        let opcionesHTML = "";
+        
+        for (const familia in prod.tonos) {
+            opcionesHTML += `<optgroup label="✨ ${familia} ✨">`;
+            prod.tonos[familia].forEach(item => {
+                // Guarda el código de barras y el número de tono juntos en el value
+                opcionesHTML += `<option value="Código: ${item.codigo} [Tono: ${item.numero}]">${item.numero}</option>`;
+            });
+            opcionesHTML += `</optgroup>`;
+        }
+
+        contenedorTonos.innerHTML = `
+            <label for="modal-select-tono" style="display:block; font-size:13px; font-weight:600; color:#4a3b32; margin-bottom:5px;">Elegir Tono / Número:</label>
+            <select id="modal-select-tono" style="width:100%; padding:10px; border:1px solid #d1c5bd; border-radius:4px; background:white; color:#333; font-weight:600;">
+                ${opcionesHTML}
+            </select>
+        `;
+        contenedorTonos.style.display = "block";
+    } else if (prod.tonos && prod.tonos.length > 0) {
+        // Mantiene compatibilidad por si usas una lista simple de texto en otros artículos
+        let opcionesHTML = prod.tonos.map(tono => `<option value="${tono}">${tono}</option>`).join('');
+        contenedorTonos.innerHTML = `
+            <label for="modal-select-tono" style="display:block; font-size:13px; font-weight:600; color:#4a3b32; margin-bottom:5px;">Elegir Opción:</label>
+            <select id="modal-select-tono" style="width:100%; padding:10px; border:1px solid #d1c5bd; border-radius:4px; background:white; color:#333; font-weight:500;">
+                ${opcionesHTML}
+            </select>
+        `;
+        contenedorTonos.style.display = "block";
+    } else {
+        contenedorTonos.innerHTML = "";
+        contenedorTonos.style.display = "none";
+    }
+
+       const botonContainer = document.getElementById('modal-boton-container');
     const accionesContainer = document.getElementById('modal-acciones-container');
-    
     if (prod.stock) {
         accionesContainer.style.display = "flex";
         botonContainer.innerHTML = `<button class="btn-add" onclick="agregarAlCarritoDesdeModal()">Añadir al carrito</button>`;
@@ -216,7 +257,12 @@ function openModal(id) {
 
 function agregarAlCarritoDesdeModal() {
     const cantidadSeleccionada = parseInt(document.getElementById('modal-cantidad').value) || 1;
-    agregarAlCarrito(productoActualId, cantidadSeleccionada);
+    
+    // Obtener los datos del tono/código seleccionado si existen
+    const selectTono = document.getElementById('modal-select-tono');
+    const tonoSeleccionado = selectTono ? selectTono.value : null;
+
+    agregarAlCarrito(productoActualId, cantidadSeleccionada, tonoSeleccionado);
     closeModal(); 
 }
 
@@ -231,18 +277,19 @@ function toggleCart() {
     document.getElementById('cart-sidebar').classList.toggle('open');
 }
 
-function agregarAlCarrito(id, cantidad = 1) {
+function agregarAlCarrito(id, cantidad = 1, tono = null) {
     const producto = todosLosProductos.find(p => p.id === id);
-    const existe = carrito.find(item => item.id === id);
+    
+    // Separa el mismo tinte en filas distintas si el cliente lleva tonos diferentes
+    const existe = carrito.find(item => item.id === id && item.tono === tono);
 
     if (existe) {
         existe.cantidad += cantidad;
     } else {
-        carrito.push({ ...producto, cantidad: cantidad });
+        carrito.push({ ...producto, cantidad: cantidad, tono: tono });
     }
     actualizarInterfazCarrito();
     
-        // El carrito no se abre solo. Aplica un efecto de escala al icono superior como aviso:
     const iconoCarrito = document.querySelector('.cart-icon');
     if (iconoCarrito) {
         iconoCarrito.style.transform = 'scale(1.2)';
@@ -254,8 +301,8 @@ function agregarAlCarrito(id, cantidad = 1) {
     }
 }
 
-function eliminarDelCarrito(id) {
-    carrito = carrito.filter(item => item.id !== id);
+function eliminarDelCarrito(id, tono = null) {
+    carrito = carrito.filter(item => !(item.id === id && item.tono === tono));
     actualizarInterfazCarrito();
 }
 
@@ -272,14 +319,17 @@ function actualizarInterfazCarrito() {
         totalCantidad += item.cantidad;
         totalPrecio += (item.precio * item.cantidad);
 
+        // Si el producto incluye datos de código/tono, los imprime de forma distinguida
+        const textoTono = item.tono ? ` <span style="color:#d4a373; font-weight:600; font-size:13px;"><br>(${item.tono})</span>` : "";
+
         const itemDiv = document.createElement('div');
         itemDiv.className = 'cart-item';
         itemDiv.innerHTML = `
             <div>
-                <h4>${item.nombre}</h4>
+                <h4>${item.nombre}${textoTono}</h4>
                 <small>Gs. ${item.precio.toLocaleString('es-ES')} x ${item.cantidad}</small>
             </div>
-            <button class="remove-btn" onclick="eliminarDelCarrito(${item.id})">🗑️</button>
+            <button class="remove-btn" onclick="eliminarDelCarrito(${item.id}, ${item.tono ? `'\${item.tono}'` : 'null'})">🗑️</button>
         `;
         listaHTML.appendChild(itemDiv);
     });
@@ -288,29 +338,31 @@ function actualizarInterfazCarrito() {
     totalHTML.innerText = `Gs. ${totalPrecio.toLocaleString('es-ES')}`;
 }
 
-// 8. Enviar pedido por WhatsApp con ID, nombre, unidades y precio
+// 8. Enviar pedido por WhatsApp incluyendo Códigos de Fábrica exactos
 function enviarPedidoWhatsApp() {
     if (carrito.length === 0) {
         alert("Tu carrito está vacío.");
         return;
     }
 
-    let mensaje = "¡Hola Coronel! Me gustaría realizar el siguiente pedido:\n\n";
+    let mensaje = "¡Hola AURA! Me gustaría realizar el siguiente pedido:\n\n";
     let total = 0;
 
     carrito.forEach(item => {
         const subtotal = item.precio * item.cantidad;
         
-        // Mensaje detallado con ID, Nombre, Unidades y Precio unitario
-        mensaje += `• [ID: ${item.id}] ${item.nombre} (${item.cantidad} unidades) x Gs. ${item.precio.toLocaleString('es-ES')}\n`;
+        // Incluye el detalle del Código de fábrica y Tono al mensaje de WhatsApp si existen
+        const detalleTono = item.tono ? ` ${item.tono}` : "";
         
+        mensaje += `• [ID: ${item.id}] ${item.nombre}${detalleTono} (${item.cantidad} unidades) x Gs. ${item.precio.toLocaleString('es-ES')}\n`;
         total += subtotal;
     });
 
     mensaje += `\n*Total a pagar: Gs. ${total.toLocaleString('es-ES')}*`;
     
-    const url = `https://wa.me/595974227371?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me{MI_TELEFONO}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
 }
-// Iniciar la carga del catálogo
+
 cargarProductos();
+

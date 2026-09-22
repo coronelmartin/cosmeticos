@@ -148,7 +148,342 @@
         "imagen": "imagenes/pure_turquoise.jpeg",
         "stock": true,
         "detalles": "Notas de Salida: Green tamarind y frutas. Notas de Corazón: Jazmín y muguet. Notas de Fondo: Almizcle y vainilla oriental."
-    }
+    },
+    {
+        "id": 39739,
+        "nombre": "DIVA - DELINEADOR KOHL",
+        "categoria": "maquillaje",
+        "marca": "gigot",
+        "precio": 71000,
+        "imagen": "imagenes/delineador_kohl.jpg",
+        "stock": true,
+        "detalles": "2 EN 1. Se puede usar en el interior y en el exterior del ojo. Sombra alto impacto, para sombrear en párpado y debajo del ojo. 1g"
+    },
+    {
+        "id": 36686,
+        "nombre": "DIVA - Spray fijador de maquillaje",
+        "categoria": "maquillaje",
+        "marca": "gigot",
+        "precio": 47000,
+        "imagen": "imagenes/fijador.png",
+        "stock": true,
+        "detalles": "Bruma ligera y refrescante. Maquillaje impactante todo el dia. no transfiere, fija el maquillaje todo el dia"
+    },
+    {
+        "id": 63158,
+        "nombre": "BOTI BABY JABÓN LÍQUIDO CON GLICERINA, 200ml.",
+        "categoria": "Infantil",
+        "marca": "O boticario",
+        "precio": 82000,
+        "imagen": "imagenes/boti_baby_jabon_liquido.png",
+        "stock": true,
+        "detalles": "Boti Baby - La confianza y el cuidado que su bebe necesita y merece."
+    },
+    {
+        "id": 63159,
+        "nombre": "BOTI BABY LOCIÓN HIDRATANTE CORPORAL, 200ml.",
+        "categoria": "Infantil",
+        "marca": "O boticario",
+        "precio": 89000,
+        "imagen": "imagenes/bb_hidratante.png",
+        "stock": true,
+        "detalles": "Boti Baby - La confianza y el cuidado que su bebe necesita y merece."
+    },
+    {
+        "id": 631570,
+        "nombre": "BOTI BABY ACONDICIONADOR, 200ml.",
+        "categoria": "Infantil",
+        "marca": "O boticario",
+        "precio": 70000,
+        "imagen": "imagenes/bb_acondicionador.png",
+        "stock": true,
+        "detalles": "Boti Baby - La confianza y el cuidado que su bebe necesita y merece."
+    },
+    {
+        "id": 631560,
+        "nombre": "BOTI BABY SHAMPOO, 200ml.",
+        "categoria": "Infantil",
+        "marca": "O boticario",
+        "precio": 70000,
+        "imagen": "imagenes/bb_shampoo.png",
+        "stock": true,
+        "detalles": "Boti Baby - La confianza y el cuidado que su bebe necesita y merece."
+    },
+    {
+        "id": 63160,
+        "nombre": "BOTI BABY COLONIA SOL, 100ml.",
+        "categoria": "Infantil",
+        "marca": "O boticario",
+        "precio": 145000,
+        "imagen": "imagenes/bb_colonia.png",
+        "stock": true,
+        "detalles": "Boti Baby - La confianza y el cuidado que su bebe necesita y merece."
+    },
+    {
+        "id": 63453,
+        "nombre": "BOTI BABY LOCIÓN BAÑO Y POS BAÑO, LUA, 100ml.",
+        "categoria": "Infantil",
+        "marca": "O boticario",
+        "precio": 89000,
+        "imagen": "imagenes/bb_pos.png",
+        "stock": true,
+        "detalles": "Boti Baby - La confianza y el cuidado que su bebe necesita y merece."
+    },
+    {
+        "id": 51500,
+        "nombre": "SOPHIE CANDY COLONIA, 100ml.",
+        "categoria": "Infantil",
+        "marca": "O boticario",
+        "precio": 162000,
+        "imagen": "imagenes/sophie.png",
+        "stock": true,
+        "detalles": "Fragancia super divertida que transmiten alegria - Es una fragancia froral afrutada, con notas cítricas al principio y notas de fondo mas dulces como la vainilla que deja cualquier ocasión con un aroma festivo"
+    },
+    {
+        "id": 55930,
+        "nombre": "BOTI SUN PROTECTOR SOLAR INFANTIL FPS70",
+        "categoria": "Solares",
+        "marca": "O boticario",
+        "precio": 169000,
+        "imagen": "imagenes/solares_kit.png",
+        "stock": true,
+        "detalles": "Fragancia super divertida que transmiten alegria - Es una fragancia froral afrutada, con notas cítricas al principio y notas de fondo mas dulces como la vainilla que deja cualquier ocasión con un aroma festivo"
+    },
+    {
+        "id": 47235,
+        "nombre": "PROTECTOR SOLAR CORPORAL CREMA FPS30 BOTI SUN 200g",
+        "categoria": "Solares",
+        "marca": "O boticario",
+        "precio": 129000,
+        "imagen": "imagenes/sol.jpg",
+        "stock": true,
+        "detalles": "O Boticário cree que el sol es para todos . ¡Y la protección también! BOTI SUN PROTECTOR SOLAR CORPORAL CREMA FPS30  será tu aliado contra el fotoenvejecimiento y otros problemas relacionados con la exposición al sol."
+    },
+    {
+        "id": 38017,
+        "nombre": "CRARIDERM ACTIVE CARBON - Mascarilla peel off 50g.",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 56000,
+        "imagen": "imagenes/clarider_carbon.jpg",
+        "stock": true,
+        "detalles": "Mascarilla peel off - Especifica para la zona t. Desobstruye los poros y cambate granitos. 50g."
+    },
+    {
+        "id": 82275,
+        "nombre": "CRARIDERM VIT C - Gel de limpieza facial purificante.",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 117000,
+        "imagen": "imagenes/vitc.jpg",
+        "stock": true,
+        "detalles": "Vitamina c. Oleobita. Acido salicilico - Reduce la oleosidad. Limpieza profunda. No reseca"
+    },
+    {
+        "id": 82177,
+        "nombre": "CRARIDERM VIT C S.O.S - Tratamiento puntual 15g.",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 69000,
+        "imagen": "imagenes/vitsos.jpg",
+        "stock": true,
+        "detalles": "¡POTENTE Y DIRECTO AL GRANO! - Las mejores soluciones contra el acné - tratamiento concentrado y puntual. Reduce, seca y disimula el granito. Vitamina c, zinc sebum, niacinamida, acido salicilico, oliobiota."
+    },
+    {
+        "id": 39392,
+        "nombre": "CRARIDERM VIT C - SUERO FACIAL 30ML.",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 110000,
+        "imagen": "imagenes/vitsuero.jpg",
+        "stock": true,
+        "detalles": "SUERO VIT C - Tratamiento facial contra el acné. Vitamina c, zinc sebum , niacinamida, acido salicilico"
+    },
+    {
+        "id": 39841,
+        "nombre": "LOTO AZUL - Crema corporal extra humectación 210g.",
+        "categoria": "cuidado-corporal",
+        "marca": "gigot",
+        "precio": 81000,
+        "imagen": "imagenes/la_corporal.jpg",
+        "stock": true,
+        "detalles": "CREMA CORPORAL 5 EN 1 - Hidratacion. Nutrición. Protección. Suavidad. Rápida absorción."
+    },
+    {
+        "id": 39811,
+        "nombre": "LOTO AZUL - Crema regeneradora facial 100g.",
+        "categoria": "cuidado-facial",
+        "marca": "gigot",
+        "precio": 67000,
+        "imagen": "imagenes/la_facial.jpg",
+        "stock": true,
+        "detalles": "CREMA PARA EL ROSTRO - Hídratacion y luminosida por la mañana. Reaparación y nutricion durante la noche."
+    },
+    {
+        "id": 39552,
+        "nombre": "VIVA PIEL - Crema ultra humectante para talones 50g.",
+        "categoria": "Cuidado de piernas",
+        "marca": "gigot",
+        "precio": 69000,
+        "imagen": "imagenes/vp_talones.jpg",
+        "stock": true,
+        "detalles": "TALONES - Con manteca de karité, óleo de coco y almendras. Coambate la resequedad y asperezas del talón, previene grietas."
+    },
+    {
+        "id": 34013,
+        "nombre": "PHYTOCOMPLEX - Gel revitalizante para piernas con varices 150g",
+        "categoria": "Cuidado de piernas",
+        "marca": "gigot",
+        "precio": 97000,
+        "imagen": "imagenes/gel_varices.jpg",
+        "stock": true,
+        "detalles": "ALIVIO PARA TUS PIERNAS Y PIES - fAVORECE LA CIRUCLACION Y REDUCE LA HINCHAZÓN"
+    },
+    {
+        "id": 35727,
+        "nombre": "phytocomplex - Gel concentrado roll-on para piernas con arañitas 90ml.",
+        "categoria": "Cuidado de piernas",
+        "marca": "gigot",
+        "precio": 84000,
+        "imagen": "imagenes/aranitas.jpg",
+        "stock": true,
+        "detalles": "Concentrado localizado para arañitas - micosis y pie de atleta."
+    },
+    {
+        "id": 34015,
+        "nombre": "phytocomplex - Loción concentrado con tea tree oil 55ml.",
+        "categoria": "Cuidado de piernas",
+        "marca": "gigot",
+        "precio": 104,
+        "imagen": "imagenes/piel_unas2.jpg",
+        "stock": true,
+        "detalles": "Loción concentrada spray"
+    },
+    {
+        "id": 34014,
+        "nombre": "phytocomplex - Crema balsámica con tea tree oil 25g.",
+        "categoria": "Cuidado de piernas",
+        "marca": "gigot",
+        "precio": 59000,
+        "imagen": "imagenes/piel_unas.jpg",
+        "stock": true,
+        "detalles": "Loción concentrada"
+    },
+    {
+        "id": 34091,
+        "nombre": "phytocomplex - Gel revitalizante para piernas cansadas 150g.",
+        "categoria": "Cuidado de piernas",
+        "marca": "gigot",
+        "precio": 86000,
+        "imagen": "imagenes/piernas_cansadas.jpg",
+        "stock": true,
+        "detalles": "PIERNAS LIVIANAS TODO EL DÍA - Para una sensación de alivio y relajación ni bien lo aplicás."
+    },
+    {
+        "id": 39849,
+        "nombre": "CLARIDERM VIT C - Loción spray corporal 75ml. ",
+        "categoria": "cuidado-corporal",
+        "marca": "gigot",
+        "precio": 95000,
+        "imagen": "imagenes/spray_corporal.jpg",
+        "stock": true,
+        "detalles": "SPRAY VIT C - tratamiento corporal contra el acné."
+    },
+    {
+        "id": 38157,
+        "nombre": "PHYTOCOMPLEX CAÍDA DEL CABELLO - Loción recuperadora revitalizante 75ml.",
+        "categoria": "cuidado-capilar",
+        "marca": "gigot",
+        "precio": 120000,
+        "imagen": "imagenes/caida_cabello.jpg",
+        "stock": true,
+        "detalles": "CAÍDA DEL PELO - Loción capilar recuperadora. Crecimiento, densidad y resistencia del cabello"
+    },
+    {
+        "id": 81953,
+        "nombre": "PURO ALOE - Crema corporal extra humentación 210g.",
+        "categoria": "cuidado-corporal",
+        "marca": "gigot",
+        "precio": 81000,
+        "imagen": "imagenes/puro_aloe.jpg",
+        "stock": true,
+        "detalles": "PURO ALOE - HUEMECTACIÓN REPARADORA Y PROFUNDA - 5 EN 1. Protección antiresequedad, suavidad inmediata, elasticidad visible, rápida absorción."
+    },
 
     
+    {
+        "id": 401,
+        "nombre": "Alfaparf - EVOLUTION OF THE COLOR",
+        "categoria": "cabello",
+        "marca": "Alfaparf",
+        "precio": 59800,
+        "imagen": "imagenes/tinte.png",
+        "stock": true,
+        "detalles": "Innovadora tecnología patentada y sistema de protección del color integral para una completa gama de tonos naturales y sofisticados que garantizan un resultado de color impecable.",
+        "tonos": {
+            "Naturales": [
+                { "numero": "1 60ML", "codigo": "PF025570" },
+                { "numero": "2 60ML", "codigo": "PF025571" },
+                { "numero": "3 60ML", "codigo": "PF025572" },
+                { "numero": "4 60ML", "codigo": "PF025573" }
+            ],
+            "Naturales Bahía": [
+                { "numero": "9.13 60ML", "codigo": "PF025593" },
+                { "numero": "7.13 60ML", "codigo": "PF025595" }
+            ],
+            "Naturales Intensos": [
+                { "numero": "4NI 60ML 2023", "codigo": "PF025593" }
+            ],
+            "Cover Reds": [
+                { "numero": "4NB 60ML 2023", "codigo": "PF026416" },
+                { "numero": "5NB 60ML 2023", "codigo": "PF026417" }
+            ]
+        }
+    },
+
+    
+    {
+        "id": 201,
+        "nombre": "Perfuns d perfums",
+        "categoria": "perfumes-femeninos",
+        "marca": "Perfuns d perfums",
+        "precio": 150000,
+        "imagen": "imagenes/mujeres.png",
+        "stock": true,
+        "detalles": "Fragancias de larga duración inspiradas en las mejores marcas internacionales. Contenido: 50ml.",
+        "tonos": {
+            "Línea Femenina (F)": [
+                { "numero": "212 SEXY (CAROLINA HERRERA)", "codigo": "F46" },
+                { "numero": "COCO CHANEL (CHANEL)", "codigo": "F11" },
+                { "numero": "212 CAROLINA HERRERA (CAROLINA HERRERA)", "codigo": "F29" },
+                { "numero": "FANTASY (BRITNEY SPEARS)", "codigo": "J01" },
+                { "numero": "THANK YOU NEXT (ARIANA GRANDE)", "codigo": "J04" }
+            ]
+        }
+    },
+    {
+        "id": 301,
+        "nombre": "Perfuns d perfums",
+        "categoria": "perfumes-masculinos",
+        "marca": "Perfuns d perfums",
+        "precio": 150000,
+        "imagen": "imagenes/hombre.png",
+        "stock": true,
+        "detalles": "Fragancias intensas de gran fijación inspiradas en alta perfumería internacional. Contenido: 50ml.",
+        "tonos": {
+            "Línea Masculina (H)": [
+                { "numero": "LEGACY (CRISTINA ROLANDO)", "codigo": "J07" },
+                { "numero": "SPIRIT OF THE BRAVE (NEYMAR DIESEL)", "codigo": "J08" },
+                { "numero": "INVICTUS AQUA (Paco Rabanne)", "codigo": "J09" },
+                { "numero": "212 FOR MEN (CAROLINA HERRERA)", "codigo": "H14" },
+                { "numero": "BOSS (HUGO BOSS)", "codigo": "H24" },
+                { "numero": "AZZARO (AZZARO)", "codigo": "H02" }
+            ]
+        }
+    }
+
+
+
+
+
 ]
